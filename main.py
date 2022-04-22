@@ -7,6 +7,7 @@ import os
 import random
 
 app = Flask(__name__)
+
 app.config['MAX_CONTENT_LENGTH'] = 2000 * 1000 * 1000
 app.config['UPLOAD_FOLDER'] = "uploads"
 

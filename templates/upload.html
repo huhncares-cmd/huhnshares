@@ -1,25 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HuhnShares | FileTransfer</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
-    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
-</head>
-<body>
-    <div class="form">
-        <h1>HuhnShares</h1>
-        <b style="color: rgb(104, 184, 146);">File uploaded successfully!</b><br>
-        <input class="input" id="dlLink" value="{{ link }}"></input>
-        <button id="copyBtn" class="btn">Copy</button><br><br>
-        <a style="color: rgb(104, 184, 146); font-weight: bold;" id="isCopied"></a>
-    </div>
-    <p>
-        <a class="link" target="_blank" href="https://github.com/huhncares-cmd">GitHub</a>
-        &bull;
-        <a class="link" target="_blank" href="https://www.huhncares.de">huhncares.de</a>
-    </p>
-</body>
-</html>
+{% extends "base.html" %}
+{% block sub %}
+Upload
+{% endblock %}
+{% block content %}
+<div class="form">
+    <h1>HuhnShares</h1>
+    <b style="color: rgb(104, 184, 146);">File uploaded successfully!</b><br>
+    <input class="input" id="dlLink" value="{{ link }}"></input>
+    <button id="copyBtn" class="btn">Copy</button><br><br>
+    <a style="color: rgb(104, 184, 146); font-weight: bold;" id="isCopied"></a>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+    var copyTextareaBtn = document.querySelector('#copyBtn');
+
+    copyTextareaBtn.addEventListener('click', function(event) {
+    var copyTextarea = document.querySelector('#dlLink');
+    copyTextarea.focus();
+    copyTextarea.select();
+
+    try {
+        var successful = document.execCommand('copy');
+        document.querySelector("#isCopied").innerHTML = "Succesfully copied the link to your clipboard!";
+    } catch (err) {
+        console.log('Oops, unable to copy');
+    }
+    });
+</script>
+{% endblock %}

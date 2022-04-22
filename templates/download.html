@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HuhnShares | Download</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <div class="form">
+        <h1>HuhnShares</h1>
+        <p>
+            Ready to download file: {{ file }}
+        </p>
+        <button class="btn" id="dl-btn">Download</button>
+    </div>
+    <p>
+        <a class="link" target="_blank" href="https://github.com/huhncares-cmd">GitHub</a>
+        &bull;
+        <a class="link" target="_blank" href="https://www.huhncares.de">huhncares.de</a>
+    </p>
+    <script>
+        btn = document.getElementById('dl-btn')
+        btn.addEventListener('click', function() {
+            window.location.href = "{{ url_for('download_file', filename=file) }}";
+        })
+    </script>
+</body>
+</html>

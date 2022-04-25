@@ -59,6 +59,11 @@ h1 {
 .btn:hover {
     box-shadow: inset 100vw 0 0 0 rgb(25, 184, 110);
 }
+.error {
+    margin-top: 20px;
+    color: red;
+    font-weight: bold;
+}
 @media screen and (max-width: 600px) {
     form {
         padding: 10px;

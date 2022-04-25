@@ -12,6 +12,8 @@ FileTransfer
         </p>
     </label>
     <input type="submit" value="Upload" name="submit" class="btn">
-    <b style="color: red; margin-top: 20px;">{{ error }}</b>
+    <div class="error">
+        {{ error }}
+    </div>
 </form>
 {% endblock %}

@@ -17,17 +17,16 @@ if not os.path.exists(app.config['UPLOAD_FOLDER']):
 def format_filename(filename):
     if "." in filename:
         return f"{filename.split('.')[0]}-{random.randint(0, 10000000000)}.{filename.split('.')[-1]}"
-    else:
-        return f"{filename}-{random.randint(0, 10000000000)}"
+    return f"{filename}-{random.randint(0, 10000000000)}"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         if 'file' not in request.files:
-            return render_template('index.html', error="No file selected")
+            return render_template('index.html', error="No file selected.")
         file = request.files['file']
         if file.filename == '':
-            return render_template('index.html', error="No file selected")
+            return render_template('index.html', error="No file selected.")
         try:
             filename = secure_filename(format_filename(file.filename))
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))

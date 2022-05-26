@@ -8,7 +8,7 @@ After that, you need to setup your virtual environment.
 ```
 python3 -m venv venv
 ```
-On Linux you might have to install python3-venv first. SImply type in this command:
+On Linux you might have to install python3-venv first. Simply type in this command:
 ```
 sudo apt install python3-venv
 ```

@@ -2,7 +2,7 @@
 ## Setup
 First, you need to git clone this repository. On Windows you might have to install git but you can also just download this repo from the website.
 ```
-git clone https://github.com/huhncares-cmd/huhnshares
+git clone https://github.com/huhncares-cmd/huhnshares.git
 ```
 After that, you need to setup your virtual environment.
 ```
@@ -35,4 +35,4 @@ You can run the bot by executing main.py.
 python3 main.py
 ```
 ## Finish
-That's it. Your file sharing website will now run locally on port 1337. If you want to deploy this website you can take look at the docs. Tanks for using this project! Feedback on Twitter (https://twitter.com/huhncares-cmd) or GitHub is appreciated.
+That's it. Your file sharing website will now run locally on port 1337. If you want to deploy this website you can take look at the docs. Tanks for using this project! Feedback on Twitter (https://twitter.com/huhncares) or GitHub is appreciated.

@@ -30,7 +30,7 @@ When you are in your virtual environment, you can simply install all dependencie
 pip3 install -r requirements.txt
 ```
 ## Run
-You can run the bot by executing main.py.
+You can run the site by executing main.py.
 ```
 python3 main.py
 ```

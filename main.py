@@ -1,6 +1,3 @@
-"""
-BACKEND for ft.huhncares.de
-"""
 from flask import Flask, render_template, send_from_directory, request
 from werkzeug.utils import secure_filename
 import os
@@ -44,7 +41,14 @@ def download():
 
 @app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
 def download_file(filename):    
+    # Secure the filename to prevent path traversal attacks
+    filename = secure_filename(filename)
     full_path = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
+    
+    # Verify the requested file exists in the uploads folder
+    if not os.path.exists(os.path.join(full_path, filename)):
+        return render_template('404.html'), 404
+        
     return send_from_directory(full_path, filename, as_attachment=True)
 
 @app.errorhandler(404)
